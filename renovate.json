@@ -12,15 +12,13 @@
     },
     {
       "matchUpdateTypes": ["minor", "patch"],
-      "excludePackageNames": ["python"],
       "groupName": "all non-major dependencies",
       "groupSlug": "all-minor-patch"
     },
     {
-      "matchDatasources": ["custom.aws-lambda"],
+      "matchDatasources": ["custom.aws-lambda", "docker"],
       "matchPackageNames": ["python"],
       "matchUpdateTypes": ["major", "minor"],
-      "matchManagers": ["custom.regex", "dockerfile", "github-actions", "gitlabci", "gitlabci-include", "pip_requirements"],
       "groupName": "Python interpreter (major/minor)",
       "groupSlug": "python-interpreter",
       "description": "Major and minor Python updates are more impactful, which means we should update this standalone."
@@ -35,6 +33,7 @@
         "Runtime:\\s*(?<depName>python)(?<currentValue>\\d+\\.\\d+)"
       ],
       "autoReplaceStringTemplate": "Runtime: {{depName}}{{newVersion}}",
+      "datasourceTemplate": "custom.aws-lambda",
       "versioningTemplate": "loose"
     }
   ],
