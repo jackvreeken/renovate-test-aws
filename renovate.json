@@ -3,6 +3,7 @@
   "extends": [
     "config:recommended"
   ],
+  "recreateClosed": true,
   "commitBodyTable": true,
   "packageRules": [
     {
