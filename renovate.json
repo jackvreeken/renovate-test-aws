@@ -1,9 +1,51 @@
 {
-  "extends": ["config:base"],
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "baseBranches": ["master"],
+  "commitBodyTable": true,
   "packageRules": [
     {
-      "updateTypes": ["minor", "patch"],
-      "automerge": true
+      "matchUpdateTypes": ["major"],
+      "schedule": ["before 9am every weekday"]
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch",
+      "schedule": ["before 9am every tuesday"]
+    },
+    {
+      "matchDatasources": ["custom.aws-lambda"],
+      "matchPackageNames": ["python"],
+      "matchUpdateTypes": ["major", "minor"],
+      "groupName": "Python interpreter (major/minor)",
+      "groupSlug": "python-interpreter",
+      "schedule": ["before 9am every weekday"],
+      "description": "Major and minor Python updates are more impactful, which means we should update this standalone."
     }
-  ]
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Updates aws lambda versions in cloudformation spec",
+      "fileMatch": ["^.+\\.cloudformation\\.ya*ml$"],
+      "matchStrings": [
+        "Runtime:\\s*(?<depName>python)(?<currentValue>\\d+\\.\\d+)"
+      ],
+      "autoReplaceStringTemplate": "Runtime: {{depName}}{{newVersion}}",
+      "datasourceTemplate": "custom.aws-lambda",
+      "versioningTemplate": "loose"
+    }
+  ],
+  "customDatasources": {
+    "aws-lambda": {
+      "defaultRegistryUrlTemplate": "https://endoflife.date/api/aws-lambda.json",
+      "format": "json",
+      "transformTemplates": [
+        "{ \"releases\": $append($filter($,function($v) { $contains($v.cycle,'{{packageName}}') }).{ \"version\": (latest != '' ? latest : cycle) ~> $replace('{{packageName}}',''), \"releaseTimestamp\": $toMillis(releaseDate) ~> $fromMillis(), \"isDeprecated\": eol = false ? false : $toMillis(eol) <= $toMillis($now()), \"changelogUrl\": link, \"sourceUrl\": link },[]), \"homepage\": \"https://endoflife.date/aws-lambda\" }"
+      ]
+    }
+  }
 }
