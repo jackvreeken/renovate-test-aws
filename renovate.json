@@ -8,7 +8,7 @@
   "commitBodyTable": true,
   "packageRules": [
     {
-      "matchUpdateTypes": ["major"],
+      "matchUpdateTypes": ["major"]
     },
     {
       "matchUpdateTypes": ["minor", "patch"],
