@@ -39,7 +39,7 @@
   ],
   "customDatasources": {
     "aws-lambda": {
-      "defaultRegistryUrlTemplate": "https://endoflife.date/api/aws-lambda.json",
+      "defaultRegistryUrlTemplate": "https://pietjebell.org/aws-lambda-no-312.json",
       "format": "json",
       "transformTemplates": [
         "{ \"releases\": $append($filter($,function($v) { $contains($v.cycle,'{{packageName}}') }).{ \"version\": (latest != '' ? latest : cycle) ~> $replace('{{packageName}}',''), \"releaseTimestamp\": $toMillis(releaseDate) ~> $fromMillis(), \"isDeprecated\": eol = false ? false : $toMillis(eol) <= $toMillis($now()), \"changelogUrl\": link, \"sourceUrl\": link },[]), \"homepage\": \"https://endoflife.date/aws-lambda\" }"
