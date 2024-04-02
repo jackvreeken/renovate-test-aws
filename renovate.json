@@ -35,7 +35,6 @@
         "Runtime:\\s*(?<depName>python)(?<currentValue>\\d+\\.\\d+)"
       ],
       "autoReplaceStringTemplate": "Runtime: {{depName}}{{newVersion}}",
-      "datasourceTemplate": "custom.aws-lambda",
       "versioningTemplate": "loose"
     }
   ],
