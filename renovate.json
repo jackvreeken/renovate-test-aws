@@ -12,6 +12,7 @@
     },
     {
       "matchUpdateTypes": ["minor", "patch"],
+      "excludePackageNames": ["python"],
       "groupName": "all non-major dependencies",
       "groupSlug": "all-minor-patch"
     },
