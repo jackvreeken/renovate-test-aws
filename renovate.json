@@ -5,6 +5,7 @@
   ],
   "prHourlyLimit": 0,
   "prConcurrentLimit": 0,
+  "reopenClosed": true,
   "commitBodyTable": true,
   "packageRules": [
     {
