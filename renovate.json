@@ -3,19 +3,17 @@
   "extends": [
     "config:recommended"
   ],
-  "prHourlyLimit": 1000,
-  "prConcurrentLimit": 1000,
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 0,
   "commitBodyTable": true,
   "packageRules": [
     {
       "matchUpdateTypes": ["major"],
-      "schedule": ["before 9am every weekday"]
     },
     {
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "all non-major dependencies",
       "groupSlug": "all-minor-patch",
-      "schedule": ["before 9am every tuesday"]
     },
     {
       "matchDatasources": ["custom.aws-lambda"],
@@ -23,7 +21,6 @@
       "matchUpdateTypes": ["major", "minor"],
       "groupName": "Python interpreter (major/minor)",
       "groupSlug": "python-interpreter",
-      "schedule": ["before 9am every weekday"],
       "description": "Major and minor Python updates are more impactful, which means we should update this standalone."
     }
   ],
