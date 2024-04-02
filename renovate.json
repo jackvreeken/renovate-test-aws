@@ -16,7 +16,7 @@
       "groupSlug": "all-minor-patch"
     },
     {
-      "matchDatasources": ["custom.aws-lambda"],
+      "matchDatasources": ["custom.aws-lambda", "docker"],
       "matchPackageNames": ["python"],
       "matchUpdateTypes": ["major", "minor"],
       "groupName": "Python interpreter (major/minor)",
