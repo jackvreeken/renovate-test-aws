@@ -3,8 +3,8 @@
   "extends": [
     "config:recommended"
   ],
-  "prHourlyLimit": 0,
-  "prConcurrentLimit": 0,
+  "prHourlyLimit": 1000,
+  "prConcurrentLimit": 1000,
   "commitBodyTable": true,
   "packageRules": [
     {
