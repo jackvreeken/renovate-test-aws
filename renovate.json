@@ -33,7 +33,7 @@
       ],
       "autoReplaceStringTemplate": "Runtime: {{depName}}{{newVersion}}",
       "datasourceTemplate": "docker",
-      "versioningTemplate": "loose"
+      "versioningTemplate": "pep440"
     }
   ]
 }
