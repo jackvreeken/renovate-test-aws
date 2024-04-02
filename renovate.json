@@ -31,7 +31,7 @@
       "matchStrings": [
         "Runtime:\\s*(?<depName>python)(?<currentValue>\\d+\\.\\d+)"
       ],
-      "autoReplaceStringTemplate": "Runtime: {{depName}}{{newVersion}}",
+      "autoReplaceStringTemplate": "Runtime: {{depName}}{{major}}.{{minor}}",
       "datasourceTemplate": "docker",
       "versioningTemplate": "pep440"
     }
