@@ -18,7 +18,6 @@
     {
       "matchPackageNames": ["python"],
       "matchUpdateTypes": ["major", "minor"],
-      "groupName": "Python interpreter (major/minor)",
       "groupSlug": "python-interpreter",
       "description": "Major and minor Python updates are more impactful, which means we should update this standalone."
     }
@@ -31,9 +30,8 @@
       "matchStrings": [
         "Runtime:\\s*(?<depName>python)(?<currentValue>\\d+\\.\\d+)"
       ],
-      "autoReplaceStringTemplate": "Runtime: {{depName}}{{major}}.{{minor}}",
       "datasourceTemplate": "docker",
-      "versioningTemplate": "pep440"
+      "versioningTemplate": "docker"
     }
   ]
 }
