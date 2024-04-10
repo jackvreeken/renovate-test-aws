@@ -32,6 +32,19 @@
       ],
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
+    },
+    {
+      "customType": "regex",
+      "description": "Updates python version for lambda packaging in gitlab ci",
+      "fileMatch": [
+        "^(.*\\/)*\\.run_tests\\.ya*ml$"
+      ],
+      "matchStrings": [
+        "--(?<depName>python)-version\\s(?<currentValue>\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "docker"
     }
+
   ]
 }
