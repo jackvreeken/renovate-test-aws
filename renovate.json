@@ -37,8 +37,8 @@
       "customType": "regex",
       "description": "Updates python versions in cloudformation/yaml/config files",
       "fileMatch": [
-        "*.ya*ml$",
-        "*.properties"
+        ".*\\.ya*ml$",
+        ".*\\.properties$"
       ],
       "matchStrings": [
         "(?<depName>python)[\\.-]*(version)*[=\\s]*(?<currentValue>\\d+\\.\\d+)"
