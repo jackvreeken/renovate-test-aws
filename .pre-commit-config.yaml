@@ -1,5 +1,5 @@
 default_language_version:
-    python: python3.11
+    python: python3.12
 
 repos:
   # Using this mirror lets us use mypyc-compiled black, which is about 2x faster
