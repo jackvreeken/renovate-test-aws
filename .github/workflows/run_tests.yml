@@ -7,13 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     services:
       python:
-        image: python:3.9
+        image: python:3.12
         options: --name python-container
     steps:
       - uses: actions/checkout@v4
 
       - name: Install dependencies
-        run: pip install -r requirements.txt --python-version 3.10 --no-cache-dir
+        run: pip install -r requirements.txt --python-version 3.12 --no-cache-dir
 
       - name: Run tests
         run: python -m unittest discover tests

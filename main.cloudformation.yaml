@@ -5,7 +5,7 @@ Resources:
     Properties:
       Handler: index.handler
       Role: !GetAtt LambdaExecutionRole.Arn
-      Runtime: python3.10
+      Runtime: python3.12
       Code:
         ZipFile: |
           def handler(event, context):
