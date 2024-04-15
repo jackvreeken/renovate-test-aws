@@ -35,16 +35,16 @@
     },
     {
       "customType": "regex",
-      "description": "Updates python version for lambda packaging in gitlab ci",
+      "description": "Updates python versions in cloudformation/yaml/config files",
       "fileMatch": [
-        "^(.*\\/)*\\.github\\/workflows\\/run_tests\\.ya*ml$"
+        "*.ya*ml$",
+        "*.properties"
       ],
       "matchStrings": [
-        "--(?<depName>python)-version\\s(?<currentValue>\\d+\\.\\d+)"
+        "(?<depName>python)[\\.-]*(version)*[=\\s]*(?<currentValue>\\d+\\.\\d+)"
       ],
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
     }
-
   ]
 }
